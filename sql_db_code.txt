@@ -1,0 +1,4 @@
+CREATE TABLE yellowcab_data (
+tpep_pickup_datetime TIMESTAMP,
+tpep_dropoff_datetime TIMESTAMP
+);

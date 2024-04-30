@@ -1,0 +1,8 @@
+apache-airflow[celery]==2.6.1
+apache-airflow-providers-postgres==5.10.2
+azure-storage-blob==12.19.1
+azure-identity==1.16.0
+fastparquet==0.6.0
+pandas==2.1.4
+psycopg2-binary==2.8.5
+pyarrow==16.0.0

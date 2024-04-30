@@ -1,0 +1,25 @@
+[2024-04-28T17:28:20.854+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-28T17:28:20.879+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.validate_file manual__2024-04-28T17:28:16.477292+00:00 [queued]>
+[2024-04-28T17:28:20.887+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.validate_file manual__2024-04-28T17:28:16.477292+00:00 [queued]>
+[2024-04-28T17:28:20.888+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-28T17:28:20.901+0000] {taskinstance.py:2327} INFO - Executing <Task(BranchPythonOperator): validate_file> on 2024-04-28 17:28:16.477292+00:00
+[2024-04-28T17:28:20.905+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=258) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-04-28T17:28:20.907+0000] {standard_task_runner.py:63} INFO - Started process 260 to run task
+[2024-04-28T17:28:20.907+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'validate_file', 'manual__2024-04-28T17:28:16.477292+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_cab.py', '--cfg-path', '/tmp/tmpv38wiw18']
+[2024-04-28T17:28:20.909+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask validate_file
+[2024-04-28T17:28:20.957+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.validate_file manual__2024-04-28T17:28:16.477292+00:00 [running]> on host b04c08af0cfe
+[2024-04-28T17:28:21.042+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='validate_file' AIRFLOW_CTX_EXECUTION_DATE='2024-04-28T17:28:16.477292+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-28T17:28:16.477292+00:00'
+[2024-04-28T17:28:21.046+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-28T17:28:21.060+0000] {baseoperator.py:399} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2024-04-28T17:28:21.061+0000] {logging_mixin.py:188} INFO - file_validation
+[2024-04-28T17:28:21.061+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-28T17:28:21.062+0000] {branch.py:36} INFO - Branch into None
+[2024-04-28T17:28:21.063+0000] {skipmixin.py:178} INFO - Following branch None
+[2024-04-28T17:28:21.076+0000] {skipmixin.py:246} INFO - Skipping tasks [('file_exception', -1)]
+[2024-04-28T17:28:21.099+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-28T17:28:21.108+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=dag_yellow_cab, task_id=validate_file, execution_date=20240428T172816, start_date=20240428T172820, end_date=20240428T172821
+[2024-04-28T17:28:21.130+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-28T17:28:21.149+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-28T17:28:21.151+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

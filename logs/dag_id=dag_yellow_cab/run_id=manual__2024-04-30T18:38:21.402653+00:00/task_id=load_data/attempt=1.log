@@ -1,0 +1,30 @@
+[2024-04-30T18:39:24.374+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-30T18:39:24.393+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.load_data manual__2024-04-30T18:38:21.402653+00:00 [queued]>
+[2024-04-30T18:39:24.400+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.load_data manual__2024-04-30T18:38:21.402653+00:00 [queued]>
+[2024-04-30T18:39:24.401+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-30T18:39:24.413+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): load_data> on 2024-04-30 18:38:21.402653+00:00
+[2024-04-30T18:39:24.419+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=102) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-04-30T18:39:24.422+0000] {standard_task_runner.py:63} INFO - Started process 104 to run task
+[2024-04-30T18:39:24.421+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'load_data', 'manual__2024-04-30T18:38:21.402653+00:00', '--job-id', '260', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp4kpf6r3w']
+[2024-04-30T18:39:24.423+0000] {standard_task_runner.py:91} INFO - Job 260: Subtask load_data
+[2024-04-30T18:39:24.464+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.load_data manual__2024-04-30T18:38:21.402653+00:00 [running]> on host c0befbd013ff
+[2024-04-30T18:39:24.541+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-04-30T18:38:21.402653+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-30T18:38:21.402653+00:00'
+[2024-04-30T18:39:24.542+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-30T18:39:24.557+0000] {logging_mixin.py:188} INFO - passed engine creation
+[2024-04-30T18:39:24.559+0000] {logging_mixin.py:188} INFO - enter for loop
+[2024-04-30T18:39:24.559+0000] {logging_mixin.py:188} INFO - enter for loop
+[2024-04-30T18:39:24.560+0000] {logging_mixin.py:188} INFO - enter for loop
+[2024-04-30T18:39:24.560+0000] {logging_mixin.py:188} INFO - enter for loop
+[2024-04-30T18:39:24.560+0000] {logging_mixin.py:188} INFO - enter if loop
+[2024-04-30T18:39:24.561+0000] {logging_mixin.py:188} INFO - enter file_upload function
+[2024-04-30T18:39:24.561+0000] {logging_mixin.py:188} INFO - read filepath
+[2024-04-30T18:39:24.562+0000] {logging_mixin.py:188} INFO - /opt/***/dags/files/yellow_tripdata_2011-02.parquet
+[2024-04-30T18:39:24.579+0000] {logging_mixin.py:188} INFO - read_table() got an unexpected keyword argument 'index'
+[2024-04-30T18:39:24.579+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-04-30T18:39:24.580+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-30T18:39:24.587+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=dag_yellow_cab, task_id=load_data, execution_date=20240430T183821, start_date=20240430T183924, end_date=20240430T183924
+[2024-04-30T18:39:24.605+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-30T18:39:24.623+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-30T18:39:24.625+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

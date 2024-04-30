@@ -1,0 +1,46 @@
+[2024-04-29T19:21:41.984+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-29T19:21:42.007+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.load_stage manual__2024-04-29T19:21:05.573415+00:00 [queued]>
+[2024-04-29T19:21:42.016+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.load_stage manual__2024-04-29T19:21:05.573415+00:00 [queued]>
+[2024-04-29T19:21:42.017+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-29T19:21:42.028+0000] {taskinstance.py:2327} INFO - Executing <Task(SnowflakeOperator): load_stage> on 2024-04-29 19:21:05.573415+00:00
+[2024-04-29T19:21:42.034+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=88) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-04-29T19:21:42.035+0000] {standard_task_runner.py:63} INFO - Started process 90 to run task
+[2024-04-29T19:21:42.036+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'load_stage', 'manual__2024-04-29T19:21:05.573415+00:00', '--job-id', '120', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_cab.py', '--cfg-path', '/tmp/tmpddkd7e6b']
+[2024-04-29T19:21:42.038+0000] {standard_task_runner.py:91} INFO - Job 120: Subtask load_stage
+[2024-04-29T19:21:42.081+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.load_stage manual__2024-04-29T19:21:05.573415+00:00 [running]> on host e8cfb03eed0f
+[2024-04-29T19:21:42.164+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='load_stage' AIRFLOW_CTX_EXECUTION_DATE='2024-04-29T19:21:05.573415+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-29T19:21:05.573415+00:00'
+[2024-04-29T19:21:42.165+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-29T19:21:42.178+0000] {sql.py:276} INFO - Executing: PUT file:////opt/***/dags/files/yellow_tripdata_2011-01.parquet @%YELLOWCAB_DATA;
+[2024-04-29T19:21:42.188+0000] {base.py:84} INFO - Using connection ID 'yellowcab_proyect' for task execution.
+[2024-04-29T19:21:42.197+0000] {base.py:84} INFO - Using connection ID 'yellowcab_proyect' for task execution.
+[2024-04-29T19:21:42.198+0000] {connection.py:386} INFO - Snowflake Connector for Python Version: 3.7.1, Python Version: 3.12.2, Platform: Linux-6.6.22-linuxkit-x86_64-with-glibc2.36
+[2024-04-29T19:21:42.199+0000] {connection.py:1211} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-04-29T19:21:43.002+0000] {cursor.py:1032} INFO - query: [ALTER SESSION SET autocommit=False]
+[2024-04-29T19:21:43.121+0000] {cursor.py:1045} INFO - query execution done
+[2024-04-29T19:21:43.122+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2024-04-29T19:21:43.123+0000] {sql.py:457} INFO - Running statement: PUT file:////opt/***/dags/files/yellow_tripdata_2011-01.parquet @%YELLOWCAB_DATA;, parameters: None
+[2024-04-29T19:21:43.123+0000] {cursor.py:1032} INFO - query: [PUT file:////opt/***/dags/files/yellow_tripdata_2011-01.parquet @%YELLOWCAB_...]
+[2024-04-29T19:21:43.204+0000] {cursor.py:1045} INFO - query execution done
+[2024-04-29T19:21:43.871+0000] {ocsp_snowflake.py:1075} ERROR - WARNING!!! Using fail-open to connect. Driver is connecting to an HTTPS endpoint without OCSP based Certificate Revocation checking as it could not obtain a valid OCSP Response to use from the CA OCSP responder. Details: 
+ {'driver': 'PythonConnector', 'version': '3.7.1', 'eventType': 'RevocationCheckFailure', 'eventSubType': 'OCSPResponseAttachedCertInvalid', 'sfcPeerHost': 'bwjkwosfcb1stg.blob.core.windows.net', 'certId': 'MEowBwYFKw4DAhoEFBvGYxjRm2IVde6wK3RpzVLVmiriBBT2fi+9gKNKsnBb69+aH9jtymGABwITMwAke3DfV7BS757LmQAAACR7cA==', 'ocspRequestBase64': 'MFIwUDBOMEwwSjAHBgUrDgMCGgQUG8ZjGNGbYhV17rArdGnNUtWaKuIEFPZ+L72Ao0qycFvr35of2O3KYYAHAhMzACR7cN9XsFLvnsuZAAAAJHtw', 'ocspResponderURL': 'http://oneocsp.microsoft.com/ocsp', 'errorMessage': '254009: 254009: Failed to verify the signature', 'insecureMode': False, 'failOpen': True, 'cacheEnabled': True, 'cacheHit': False}
+[2024-04-29T19:21:44.917+0000] {sql.py:466} INFO - Rows affected: 1
+[2024-04-29T19:21:44.918+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/snowflake/hooks/snowflake.py:393: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))  # type: ignore[attr-defined]
+
+[2024-04-29T19:21:44.919+0000] {snowflake.py:402} INFO - Rows affected: 1
+[2024-04-29T19:21:44.919+0000] {snowflake.py:403} INFO - Snowflake query id: 01b3ffc9-0000-5448-0000-0000d81d60cd
+[2024-04-29T19:21:44.920+0000] {cursor.py:1032} INFO - query: [COMMIT]
+[2024-04-29T19:21:44.986+0000] {cursor.py:1045} INFO - query execution done
+[2024-04-29T19:21:44.987+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2024-04-29T19:21:44.988+0000] {connection.py:734} INFO - closed
+[2024-04-29T19:21:45.036+0000] {connection.py:740} INFO - No async queries seem to be running, deleting session
+[2024-04-29T19:21:45.086+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-29T19:21:45.111+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=dag_yellow_cab, task_id=load_stage, execution_date=20240429T192105, start_date=20240429T192142, end_date=20240429T192145
+[2024-04-29T19:21:45.169+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-29T19:21:45.183+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+  result = cls.__new__(cls)
+
+[2024-04-29T19:21:45.196+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-29T19:21:45.197+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,88 @@
+[2024-04-30T18:44:39.506+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-30T18:44:39.525+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.calculate_mean_time manual__2024-04-30T18:43:19.374738+00:00 [queued]>
+[2024-04-30T18:44:39.532+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.calculate_mean_time manual__2024-04-30T18:43:19.374738+00:00 [queued]>
+[2024-04-30T18:44:39.532+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-30T18:44:39.544+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): calculate_mean_time> on 2024-04-30 18:43:19.374738+00:00
+[2024-04-30T18:44:39.550+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=189) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-04-30T18:44:39.552+0000] {standard_task_runner.py:63} INFO - Started process 191 to run task
+[2024-04-30T18:44:39.552+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'calculate_mean_time', 'manual__2024-04-30T18:43:19.374738+00:00', '--job-id', '264', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp3goms929']
+[2024-04-30T18:44:39.554+0000] {standard_task_runner.py:91} INFO - Job 264: Subtask calculate_mean_time
+[2024-04-30T18:44:39.595+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.calculate_mean_time manual__2024-04-30T18:43:19.374738+00:00 [running]> on host c0befbd013ff
+[2024-04-30T18:44:39.675+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='calculate_mean_time' AIRFLOW_CTX_EXECUTION_DATE='2024-04-30T18:43:19.374738+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-30T18:43:19.374738+00:00'
+[2024-04-30T18:44:39.676+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-30T18:44:39.714+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-30T18:44:39.714+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "yellowcab_data" does not exist
+LINE 1: ...MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/scripts.py", line 117, in calculation_file
+    df = pd.read_sql_query("WITH last_date AS (SELECT MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_data) SELECT tpep_pickup_datetime, tpep_dropoff_datetime FROM yellowcab_data CROSS JOIN last_date WHERE tpep_pickup_datetime >= last_start_time - INTERVAL '45 days';",con=engine)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 486, in read_sql_query
+    return pandas_sql.read_query(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 1776, in read_query
+    result = self.execute(sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 1599, in execute
+    return self.con.exec_driver_sql(sql, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1770, in exec_driver_sql
+    return self._exec_driver_sql(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1674, in _exec_driver_sql
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "yellowcab_data" does not exist
+LINE 1: ...MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_...
+                                                             ^
+
+[SQL: WITH last_date AS (SELECT MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_data) SELECT tpep_pickup_datetime, tpep_dropoff_datetime FROM yellowcab_data CROSS JOIN last_date WHERE tpep_pickup_datetime >= last_start_time - INTERVAL '45 days';]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2024-04-30T18:44:39.736+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=dag_yellow_cab, task_id=calculate_mean_time, execution_date=20240430T184319, start_date=20240430T184439, end_date=20240430T184439
+[2024-04-30T18:44:39.748+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 264 for task calculate_mean_time ((psycopg2.errors.UndefinedTable) relation "yellowcab_data" does not exist
+LINE 1: ...MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_...
+                                                             ^
+
+[SQL: WITH last_date AS (SELECT MAX(tpep_pickup_datetime) AS last_start_time FROM yellowcab_data) SELECT tpep_pickup_datetime, tpep_dropoff_datetime FROM yellowcab_data CROSS JOIN last_date WHERE tpep_pickup_datetime >= last_start_time - INTERVAL '45 days';]
+(Background on this error at: https://sqlalche.me/e/14/f405); 191)
+[2024-04-30T18:44:39.774+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-04-30T18:44:39.790+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-04-30T18:44:39.792+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

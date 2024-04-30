@@ -1,0 +1,49 @@
+[2024-04-28T18:48:40.435+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-04-28T18:48:40.457+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.download_file manual__2024-04-28T18:48:37.862332+00:00 [queued]>
+[2024-04-28T18:48:40.466+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.download_file manual__2024-04-28T18:48:37.862332+00:00 [queued]>
+[2024-04-28T18:48:40.466+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-04-28T18:48:40.480+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): download_file> on 2024-04-28 18:48:37.862332+00:00
+[2024-04-28T18:48:40.484+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=72) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-04-28T18:48:40.491+0000] {standard_task_runner.py:63} INFO - Started process 73 to run task
+[2024-04-28T18:48:40.490+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'download_file', 'manual__2024-04-28T18:48:37.862332+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_cab.py', '--cfg-path', '/tmp/tmpe32b9brx']
+[2024-04-28T18:48:40.494+0000] {standard_task_runner.py:91} INFO - Job 46: Subtask download_file
+[2024-04-28T18:48:40.570+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.download_file manual__2024-04-28T18:48:37.862332+00:00 [running]> on host 3b50846985b8
+[2024-04-28T18:48:40.680+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='download_file' AIRFLOW_CTX_EXECUTION_DATE='2024-04-28T18:48:37.862332+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-28T18:48:37.862332+00:00'
+[2024-04-28T18:48:40.681+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-04-28T18:48:40.731+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/CertificateReport.pdf'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'ee3e4300-058f-11ef-a5d2-0242c0a81004'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-04-28T18:48:41.377+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '11228110'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Sun, 28 Apr 2024 18:36:38 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC67B22436B032"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'de5fda08-e01e-0041-239c-99907b000000'
+    'x-ms-client-request-id': 'ee3e4300-058f-11ef-a5d2-0242c0a81004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Sun, 28 Apr 2024 18:48:40 GMT'
+[2024-04-28T18:48:43.958+0000] {python.py:237} INFO - Done. Returned value was: True
+[2024-04-28T18:48:43.959+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-04-28T18:48:43.980+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=dag_yellow_cab, task_id=download_file, execution_date=20240428T184837, start_date=20240428T184840, end_date=20240428T184843
+[2024-04-28T18:48:43.994+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-04-28T18:48:44.022+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-04-28T18:48:44.023+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
