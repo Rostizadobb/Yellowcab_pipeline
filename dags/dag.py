@@ -1,6 +1,6 @@
 import airflow.utils.dates
 from airflow import DAG
-from airflow.operators.python import PythonOperator, BranchPythonOperator
+from airflow.operators.python import PythonOperator
 from scripts.scripts import file_download, load_files, calculation_file
 
 with DAG("dag_yellow_cab",

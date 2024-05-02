@@ -1,0 +1,1294 @@
+[2024-05-01T22:57:30.830+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-01T22:57:30.853+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_yellow_cab.request_file manual__2024-05-01T22:57:26.393966+00:00 [queued]>
+[2024-05-01T22:57:30.861+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_yellow_cab.request_file manual__2024-05-01T22:57:26.393966+00:00 [queued]>
+[2024-05-01T22:57:30.862+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-05-01T22:57:30.876+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): request_file> on 2024-05-01 22:57:26.393966+00:00
+[2024-05-01T22:57:30.887+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=140) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-01T22:57:30.891+0000] {standard_task_runner.py:63} INFO - Started process 145 to run task
+[2024-05-01T22:57:30.893+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_yellow_cab', 'request_file', 'manual__2024-05-01T22:57:26.393966+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpd4j90ff2']
+[2024-05-01T22:57:30.899+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask request_file
+[2024-05-01T22:57:31.066+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_yellow_cab.request_file manual__2024-05-01T22:57:26.393966+00:00 [running]> on host e4515e05b162
+[2024-05-01T22:57:31.227+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_yellow_cab' AIRFLOW_CTX_TASK_ID='request_file' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T22:57:26.393966+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-01T22:57:26.393966+00:00'
+[2024-05-01T22:57:31.231+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-01T22:57:31.281+0000] {scripts.py:12} INFO - Downloading files
+[2024-05-01T22:57:31.291+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles?restype=REDACTED&comp=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '30c9c520-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:31.861+0000] {_universal.py:550} INFO - Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/xml'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d2fe502-001e-003b-051a-9c8d3b000000'
+    'x-ms-client-request-id': '30c9c520-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:34 GMT'
+[2024-05-01T22:57:31.875+0000] {logging_mixin.py:188} WARNING - --- Logging error ---
+[2024-05-01T22:57:31.877+0000] {logging_mixin.py:188} WARNING - Traceback (most recent call last):
+[2024-05-01T22:57:31.878+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1160, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:57:31.879+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 999, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:57:31.880+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 703, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:57:31.880+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 392, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+[2024-05-01T22:57:31.881+0000] {logging_mixin.py:188} WARNING - TypeError: not all arguments converted during string formatting
+[2024-05-01T22:57:31.883+0000] {logging_mixin.py:188} WARNING - Call stack:
+[2024-05-01T22:57:31.894+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/bin/***", line 8, in <module>
+    sys.exit(main())
+[2024-05-01T22:57:31.895+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/__main__.py", line 58, in main
+    args.func(args)
+[2024-05-01T22:57:31.895+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:57:31.896+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:57:31.897+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 60, in wrapper
+    providers_configuration_loaded(func)(*args, **kwargs)
+[2024-05-01T22:57:31.900+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+[2024-05-01T22:57:31.901+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 231, in worker
+    _run_command_with_daemon_option(
+[2024-05-01T22:57:31.902+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 46, in _run_command_with_daemon_option
+    run_command_with_daemon_option(*args, **kwargs)
+[2024-05-01T22:57:31.902+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/daemon_utils.py", line 85, in run_command_with_daemon_option
+    callback()
+[2024-05-01T22:57:31.903+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 224, in run_celery_worker
+    celery_app.worker_main(options)
+[2024-05-01T22:57:31.903+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/base.py", line 389, in worker_main
+    self.start(argv=argv)
+[2024-05-01T22:57:31.904+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/base.py", line 369, in start
+    celery.main(args=argv, standalone_mode=False)
+[2024-05-01T22:57:31.904+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+[2024-05-01T22:57:31.905+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+[2024-05-01T22:57:31.905+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+[2024-05-01T22:57:31.906+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+[2024-05-01T22:57:31.906+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+[2024-05-01T22:57:31.907+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+[2024-05-01T22:57:31.907+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bin/worker.py", line 356, in worker
+    worker.start()
+[2024-05-01T22:57:31.908+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+[2024-05-01T22:57:31.908+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+[2024-05-01T22:57:31.909+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+[2024-05-01T22:57:31.909+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/base.py", line 130, in start
+    self.on_start()
+[2024-05-01T22:57:31.910+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/prefork.py", line 109, in on_start
+    P = self._pool = Pool(processes=self.limit,
+[2024-05-01T22:57:31.910+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/asynpool.py", line 464, in __init__
+    super().__init__(processes, *args, **kwargs)
+[2024-05-01T22:57:31.911+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 1045, in __init__
+    self._create_worker_process(i)
+[2024-05-01T22:57:31.911+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/asynpool.py", line 482, in _create_worker_process
+    return super()._create_worker_process(i)
+[2024-05-01T22:57:31.912+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 1157, in _create_worker_process
+    w.start()
+[2024-05-01T22:57:31.912+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 120, in start
+    self._popen = self._Popen(self)
+[2024-05-01T22:57:31.913+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/context.py", line 331, in _Popen
+    return Popen(process_obj)
+[2024-05-01T22:57:31.913+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/popen_fork.py", line 22, in __init__
+    self._launch(process_obj)
+[2024-05-01T22:57:31.914+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/popen_fork.py", line 77, in _launch
+    code = process_obj._bootstrap()
+[2024-05-01T22:57:31.914+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 323, in _bootstrap
+    self.run()
+[2024-05-01T22:57:31.915+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 110, in run
+    self._target(*self._args, **self._kwargs)
+[2024-05-01T22:57:31.915+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 291, in __call__
+    sys.exit(self.workloop(pid=pid))
+[2024-05-01T22:57:31.916+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 361, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+[2024-05-01T22:57:31.916+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 675, in fast_trace_task
+    R, I, T, Rstr = tasks[task].__trace__(
+[2024-05-01T22:57:31.917+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+[2024-05-01T22:57:31.917+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+[2024-05-01T22:57:31.918+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 135, in execute_command
+    _execute_in_fork(command_to_exec, celery_task_id)
+[2024-05-01T22:57:31.918+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 169, in _execute_in_fork
+    args.func(args)
+[2024-05-01T22:57:31.919+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:57:31.919+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:57:31.920+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 441, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+[2024-05-01T22:57:31.920+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 219, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+[2024-05-01T22:57:31.921+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 281, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+[2024-05-01T22:57:31.921+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+[2024-05-01T22:57:31.922+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 402, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+[2024-05-01T22:57:31.922+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 431, in execute_job
+    ret = execute_callable()
+[2024-05-01T22:57:31.923+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/local_task_job_runner.py", line 168, in _execute
+    self.task_runner.start()
+[2024-05-01T22:57:31.923+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 51, in start
+    self.process = self._start_by_fork()
+[2024-05-01T22:57:31.924+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 103, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+[2024-05-01T22:57:31.924+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:57:31.925+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:57:31.925+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 441, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+[2024-05-01T22:57:31.926+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 221, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+[2024-05-01T22:57:31.926+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 300, in _run_raw_task
+    return ti._run_raw_task(
+[2024-05-01T22:57:31.927+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+[2024-05-01T22:57:31.927+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2476, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+[2024-05-01T22:57:31.928+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2663, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+[2024-05-01T22:57:31.928+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2686, in _execute_task
+    return _execute_task(self, context, task_orig)
+[2024-05-01T22:57:31.929+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+[2024-05-01T22:57:31.929+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+[2024-05-01T22:57:31.930+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+[2024-05-01T22:57:31.930+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+[2024-05-01T22:57:31.931+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+[2024-05-01T22:57:31.931+0000] {logging_mixin.py:188} WARNING -   File "/opt/***/dags/scripts/scripts.py", line 17, in file_download
+    get_file(filename.name)
+[2024-05-01T22:57:31.932+0000] {logging_mixin.py:188} WARNING -   File "/opt/***/dags/scripts/scripts.py", line 26, in get_file
+    logger.info("file detected on blob: ", filename)
+[2024-05-01T22:57:31.932+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+[2024-05-01T22:57:31.933+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+[2024-05-01T22:57:31.933+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+[2024-05-01T22:57:31.934+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+[2024-05-01T22:57:31.934+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+[2024-05-01T22:57:31.935+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/log/file_task_handler.py", line 248, in emit
+    self.handler.emit(record)
+[2024-05-01T22:57:31.936+0000] {logging_mixin.py:188} WARNING - Message: 'file detected on blob: '
+Arguments: ('yellow_tripdata_2011-01.parquet',)
+[2024-05-01T22:57:31.939+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '312d3b0a-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:32.045+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '33554432'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d2fe58c-001e-003b-031a-9c8d3b000000'
+    'x-ms-client-request-id': '312d3b0a-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:35 GMT'
+[2024-05-01T22:57:50.244+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3c1455a8-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:50.422+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d303e9c-001e-003b-4b1b-9c8d3b000000'
+    'x-ms-client-request-id': '3c1455a8-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:53 GMT'
+[2024-05-01T22:57:52.093+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3d2f2e0e-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:52.246+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30476e-001e-003b-671b-9c8d3b000000'
+    'x-ms-client-request-id': '3d2f2e0e-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:55 GMT'
+[2024-05-01T22:57:53.234+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3dde5f50-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:53.371+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d304c8e-001e-003b-281b-9c8d3b000000'
+    'x-ms-client-request-id': '3dde5f50-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:56 GMT'
+[2024-05-01T22:57:54.407+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3e90f85e-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:54.509+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3050fc-001e-003b-2f1b-9c8d3b000000'
+    'x-ms-client-request-id': '3e90f85e-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:57 GMT'
+[2024-05-01T22:57:55.289+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3f177d3e-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:55.372+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30543e-001e-003b-351b-9c8d3b000000'
+    'x-ms-client-request-id': '3f177d3e-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:58 GMT'
+[2024-05-01T22:57:56.695+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3feec9f6-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:56.835+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d305a1a-001e-003b-011b-9c8d3b000000'
+    'x-ms-client-request-id': '3feec9f6-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:57:59 GMT'
+[2024-05-01T22:57:58.321+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '40e6c818-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:57:58.436+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3061be-001e-003b-771b-9c8d3b000000'
+    'x-ms-client-request-id': '40e6c818-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:01 GMT'
+[2024-05-01T22:58:00.126+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '41fa4720-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:00.242+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30691b-001e-003b-801b-9c8d3b000000'
+    'x-ms-client-request-id': '41fa4720-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:03 GMT'
+[2024-05-01T22:58:01.829+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '42fe0a1c-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:01.952+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d306fdb-001e-003b-101b-9c8d3b000000'
+    'x-ms-client-request-id': '42fe0a1c-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:04 GMT'
+[2024-05-01T22:58:03.448+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '43f5356c-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:03.573+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30768a-001e-003b-021b-9c8d3b000000'
+    'x-ms-client-request-id': '43f5356c-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:06 GMT'
+[2024-05-01T22:58:05.505+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '452f00a2-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:05.630+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d307eb0-001e-003b-691b-9c8d3b000000'
+    'x-ms-client-request-id': '452f00a2-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:08 GMT'
+[2024-05-01T22:58:07.910+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '469e019a-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:08.033+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3088e0-001e-003b-411b-9c8d3b000000'
+    'x-ms-client-request-id': '469e019a-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:10 GMT'
+[2024-05-01T22:58:10.054+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '47e512c8-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:10.164+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3092ef-001e-003b-051b-9c8d3b000000'
+    'x-ms-client-request-id': '47e512c8-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:13 GMT'
+[2024-05-01T22:58:11.814+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '48f1a9b0-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:11.931+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d309a42-001e-003b-331b-9c8d3b000000'
+    'x-ms-client-request-id': '48f1a9b0-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:14 GMT'
+[2024-05-01T22:58:13.490+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '49f175a2-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:13.596+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30a226-001e-003b-0f1b-9c8d3b000000'
+    'x-ms-client-request-id': '49f175a2-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:16 GMT'
+[2024-05-01T22:58:14.922+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '4acbe98a-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:15.037+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30a884-001e-003b-701b-9c8d3b000000'
+    'x-ms-client-request-id': '4acbe98a-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:17 GMT'
+[2024-05-01T22:58:16.916+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '4bfc3be8-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:17.047+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30b1e2-001e-003b-221b-9c8d3b000000'
+    'x-ms-client-request-id': '4bfc3be8-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:20 GMT'
+[2024-05-01T22:58:19.504+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '4d8712bc-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:19.599+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30be1d-001e-003b-541b-9c8d3b000000'
+    'x-ms-client-request-id': '4d8712bc-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:22 GMT'
+[2024-05-01T22:58:22.046+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '4f0afaa4-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:22.138+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30c822-001e-003b-011b-9c8d3b000000'
+    'x-ms-client-request-id': '4f0afaa4-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:25 GMT'
+[2024-05-01T22:58:24.133+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '504963e2-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:24.277+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30d12a-001e-003b-6c1b-9c8d3b000000'
+    'x-ms-client-request-id': '504963e2-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:27 GMT'
+[2024-05-01T22:58:26.270+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '518e481c-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:26.477+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30d9f7-001e-003b-091b-9c8d3b000000'
+    'x-ms-client-request-id': '518e481c-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:29 GMT'
+[2024-05-01T22:58:28.242+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '52bc3fe6-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:28.354+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30e1b1-001e-003b-451b-9c8d3b000000'
+    'x-ms-client-request-id': '52bc3fe6-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:31 GMT'
+[2024-05-01T22:58:29.948+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '53c0c948-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:30.055+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30e8d0-001e-003b-1e1b-9c8d3b000000'
+    'x-ms-client-request-id': '53c0c948-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:32 GMT'
+[2024-05-01T22:58:31.495+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '54acc01e-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:31.613+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30f018-001e-003b-441b-9c8d3b000000'
+    'x-ms-client-request-id': '54acc01e-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:34 GMT'
+[2024-05-01T22:58:33.369+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '55cab14a-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:33.505+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d30f8fb-001e-003b-711b-9c8d3b000000'
+    'x-ms-client-request-id': '55cab14a-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:36 GMT'
+[2024-05-01T22:58:34.980+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '56c07e2c-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:35.105+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3100de-001e-003b-2d1b-9c8d3b000000'
+    'x-ms-client-request-id': '56c07e2c-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:38 GMT'
+[2024-05-01T22:58:36.652+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '57bfad34-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:36.764+0000] {_universal.py:550} INFO - Response status: 206
+Response headers:
+    'Content-Length': '4194304'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Wed, 01 May 2024 22:28:05 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DC6A2DF85F6C08"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d310a14-001e-003b-5a1b-9c8d3b000000'
+    'x-ms-client-request-id': '57bfad34-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'Date': 'Wed, 01 May 2024 22:58:39 GMT'
+[2024-05-01T22:58:38.087+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'If-Match': '"0x8DC6A2DF85F6C08"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '589a9642-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:38.151+0000] {_universal.py:550} INFO - Response status: 404
+Response headers:
+    'Content-Length': '215'
+    'Content-Type': 'application/xml'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d3112be-001e-003b-681b-9c8d3b000000'
+    'x-ms-client-request-id': '589a9642-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-is-soft-deleted': 'REDACTED'
+    'x-ms-error-code': 'BlobNotFound'
+    'Date': 'Wed, 01 May 2024 22:58:41 GMT'
+[2024-05-01T22:58:38.161+0000] {logging_mixin.py:188} INFO - The specified blob does not exist.
+RequestId:7d3112be-001e-003b-681b-9c8d3b000000
+Time:2024-05-01T22:58:41.8112740Z
+ErrorCode:BlobNotFound
+Content: <?xml version="1.0" encoding="utf-8"?><Error><Code>BlobNotFound</Code><Message>The specified blob does not exist.
+RequestId:7d3112be-001e-003b-681b-9c8d3b000000
+Time:2024-05-01T22:58:41.8112740Z</Message></Error>
+[2024-05-01T22:58:38.169+0000] {_universal.py:514} INFO - Request URL: 'https://azureyellowcab.blob.core.windows.net/cabfiles/yellow_tripdata_2011-01.parquet'
+Request method: 'DELETE'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.1 Python/3.12.2 (Linux-6.6.22-linuxkit-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '58a725b0-080e-11ef-be5a-0242ac1f0007'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-05-01T22:58:38.234+0000] {_universal.py:550} INFO - Response status: 404
+Response headers:
+    'Content-Length': '215'
+    'Content-Type': 'application/xml'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '7d311349-001e-003b-711b-9c8d3b000000'
+    'x-ms-client-request-id': '58a725b0-080e-11ef-be5a-0242ac1f0007'
+    'x-ms-version': 'REDACTED'
+    'x-ms-error-code': 'BlobNotFound'
+    'Date': 'Wed, 01 May 2024 22:58:41 GMT'
+[2024-05-01T22:58:38.241+0000] {logging_mixin.py:188} WARNING - --- Logging error ---
+[2024-05-01T22:58:38.255+0000] {logging_mixin.py:188} WARNING - Traceback (most recent call last):
+[2024-05-01T22:58:38.263+0000] {logging_mixin.py:188} WARNING -   File "/opt/***/dags/scripts/scripts.py", line 18, in file_download
+    container_client.delete_blob(filename.name)
+[2024-05-01T22:58:38.268+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.270+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/storage/blob/_container_client.py", line 1188, in delete_blob
+    blob_client.delete_blob( # type: ignore
+[2024-05-01T22:58:38.272+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.274+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/storage/blob/_blob_client.py", line 1211, in delete_blob
+    process_storage_error(error)
+[2024-05-01T22:58:38.275+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/storage/blob/_shared/response_handlers.py", line 184, in process_storage_error
+    exec("raise error from None")   # pylint: disable=exec-used # nosec
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.275+0000] {logging_mixin.py:188} WARNING -   File "<string>", line 1, in <module>
+[2024-05-01T22:58:38.276+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/storage/blob/_blob_client.py", line 1209, in delete_blob
+    self._client.blob.delete(**options)
+[2024-05-01T22:58:38.277+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.279+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/storage/blob/_generated/operations/_blob_operations.py", line 2116, in delete
+    map_error(status_code=response.status_code, response=response, error_map=error_map)
+[2024-05-01T22:58:38.279+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/azure/core/exceptions.py", line 164, in map_error
+    raise error
+[2024-05-01T22:58:38.280+0000] {logging_mixin.py:188} WARNING - azure.core.exceptions.ResourceNotFoundError: The specified blob does not exist.
+RequestId:7d311349-001e-003b-711b-9c8d3b000000
+Time:2024-05-01T22:58:41.8949183Z
+ErrorCode:BlobNotFound
+Content: <?xml version="1.0" encoding="utf-8"?><Error><Code>BlobNotFound</Code><Message>The specified blob does not exist.
+RequestId:7d311349-001e-003b-711b-9c8d3b000000
+Time:2024-05-01T22:58:41.8949183Z</Message></Error>
+[2024-05-01T22:58:38.281+0000] {logging_mixin.py:188} WARNING - 
+During handling of the above exception, another exception occurred:
+[2024-05-01T22:58:38.281+0000] {logging_mixin.py:188} WARNING - Traceback (most recent call last):
+[2024-05-01T22:58:38.282+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1160, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.283+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 999, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.284+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 703, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+[2024-05-01T22:58:38.284+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 392, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+[2024-05-01T22:58:38.285+0000] {logging_mixin.py:188} WARNING - TypeError: not all arguments converted during string formatting
+[2024-05-01T22:58:38.286+0000] {logging_mixin.py:188} WARNING - Call stack:
+[2024-05-01T22:58:38.292+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/bin/***", line 8, in <module>
+    sys.exit(main())
+[2024-05-01T22:58:38.293+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/__main__.py", line 58, in main
+    args.func(args)
+[2024-05-01T22:58:38.294+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:58:38.296+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:58:38.297+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 60, in wrapper
+    providers_configuration_loaded(func)(*args, **kwargs)
+[2024-05-01T22:58:38.298+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+[2024-05-01T22:58:38.299+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 231, in worker
+    _run_command_with_daemon_option(
+[2024-05-01T22:58:38.300+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 46, in _run_command_with_daemon_option
+    run_command_with_daemon_option(*args, **kwargs)
+[2024-05-01T22:58:38.300+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/daemon_utils.py", line 85, in run_command_with_daemon_option
+    callback()
+[2024-05-01T22:58:38.301+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/cli/celery_command.py", line 224, in run_celery_worker
+    celery_app.worker_main(options)
+[2024-05-01T22:58:38.303+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/base.py", line 389, in worker_main
+    self.start(argv=argv)
+[2024-05-01T22:58:38.304+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/base.py", line 369, in start
+    celery.main(args=argv, standalone_mode=False)
+[2024-05-01T22:58:38.305+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+[2024-05-01T22:58:38.305+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+[2024-05-01T22:58:38.306+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+[2024-05-01T22:58:38.307+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+[2024-05-01T22:58:38.308+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+[2024-05-01T22:58:38.309+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+[2024-05-01T22:58:38.311+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bin/worker.py", line 356, in worker
+    worker.start()
+[2024-05-01T22:58:38.312+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+[2024-05-01T22:58:38.312+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+[2024-05-01T22:58:38.313+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+[2024-05-01T22:58:38.314+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/base.py", line 130, in start
+    self.on_start()
+[2024-05-01T22:58:38.315+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/prefork.py", line 109, in on_start
+    P = self._pool = Pool(processes=self.limit,
+[2024-05-01T22:58:38.315+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/asynpool.py", line 464, in __init__
+    super().__init__(processes, *args, **kwargs)
+[2024-05-01T22:58:38.316+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 1045, in __init__
+    self._create_worker_process(i)
+[2024-05-01T22:58:38.316+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/concurrency/asynpool.py", line 482, in _create_worker_process
+    return super()._create_worker_process(i)
+[2024-05-01T22:58:38.317+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 1157, in _create_worker_process
+    w.start()
+[2024-05-01T22:58:38.318+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 120, in start
+    self._popen = self._Popen(self)
+[2024-05-01T22:58:38.318+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/context.py", line 331, in _Popen
+    return Popen(process_obj)
+[2024-05-01T22:58:38.319+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/popen_fork.py", line 22, in __init__
+    self._launch(process_obj)
+[2024-05-01T22:58:38.319+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/popen_fork.py", line 77, in _launch
+    code = process_obj._bootstrap()
+[2024-05-01T22:58:38.320+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 323, in _bootstrap
+    self.run()
+[2024-05-01T22:58:38.320+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/process.py", line 110, in run
+    self._target(*self._args, **self._kwargs)
+[2024-05-01T22:58:38.321+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 291, in __call__
+    sys.exit(self.workloop(pid=pid))
+[2024-05-01T22:58:38.322+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/billiard/pool.py", line 361, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+[2024-05-01T22:58:38.323+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 675, in fast_trace_task
+    R, I, T, Rstr = tasks[task].__trace__(
+[2024-05-01T22:58:38.323+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+[2024-05-01T22:58:38.324+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+[2024-05-01T22:58:38.325+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 135, in execute_command
+    _execute_in_fork(command_to_exec, celery_task_id)
+[2024-05-01T22:58:38.325+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 169, in _execute_in_fork
+    args.func(args)
+[2024-05-01T22:58:38.326+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:58:38.327+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:58:38.328+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 441, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+[2024-05-01T22:58:38.328+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 219, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+[2024-05-01T22:58:38.329+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 281, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+[2024-05-01T22:58:38.330+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+[2024-05-01T22:58:38.330+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 402, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+[2024-05-01T22:58:38.331+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 431, in execute_job
+    ret = execute_callable()
+[2024-05-01T22:58:38.332+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/jobs/local_task_job_runner.py", line 168, in _execute
+    self.task_runner.start()
+[2024-05-01T22:58:38.332+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 51, in start
+    self.process = self._start_by_fork()
+[2024-05-01T22:58:38.333+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 103, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+[2024-05-01T22:58:38.334+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+[2024-05-01T22:58:38.335+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+[2024-05-01T22:58:38.335+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 441, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+[2024-05-01T22:58:38.336+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 221, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+[2024-05-01T22:58:38.337+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 300, in _run_raw_task
+    return ti._run_raw_task(
+[2024-05-01T22:58:38.337+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+[2024-05-01T22:58:38.338+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2476, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+[2024-05-01T22:58:38.339+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2663, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+[2024-05-01T22:58:38.339+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 2686, in _execute_task
+    return _execute_task(self, context, task_orig)
+[2024-05-01T22:58:38.340+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+[2024-05-01T22:58:38.341+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+[2024-05-01T22:58:38.341+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+[2024-05-01T22:58:38.342+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+[2024-05-01T22:58:38.343+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+[2024-05-01T22:58:38.343+0000] {logging_mixin.py:188} WARNING -   File "/opt/***/dags/scripts/scripts.py", line 22, in file_download
+    logger.info("An error occurred, file not downloaded:", e)
+[2024-05-01T22:58:38.344+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+[2024-05-01T22:58:38.345+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+[2024-05-01T22:58:38.346+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+[2024-05-01T22:58:38.346+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+[2024-05-01T22:58:38.347+0000] {logging_mixin.py:188} WARNING -   File "/usr/local/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+[2024-05-01T22:58:38.347+0000] {logging_mixin.py:188} WARNING -   File "/home/***/.local/lib/python3.12/site-packages/***/utils/log/file_task_handler.py", line 248, in emit
+    self.handler.emit(record)
+[2024-05-01T22:58:38.348+0000] {logging_mixin.py:188} WARNING - Message: 'An error occurred, file not downloaded:'
+Arguments: (ResourceNotFoundError('The specified blob does not exist.\nRequestId:7d311349-001e-003b-711b-9c8d3b000000\nTime:2024-05-01T22:58:41.8949183Z\nErrorCode:BlobNotFound'),)
+[2024-05-01T22:58:38.350+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-05-01T22:58:38.366+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-01T22:58:38.396+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=dag_yellow_cab, task_id=request_file, execution_date=20240501T225726, start_date=20240501T225730, end_date=20240501T225838
+[2024-05-01T22:58:38.437+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-01T22:58:38.495+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-01T22:58:38.497+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

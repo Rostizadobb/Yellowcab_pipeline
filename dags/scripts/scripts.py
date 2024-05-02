@@ -3,25 +3,27 @@ import os
 import pandas as pd
 import pyarrow.parquet as pq
 from sqlalchemy import create_engine
-import dags.scripts.FileUtils as utils
-
-AZURE_STORAGE_CONNECTION_STRING = 'DefaultEndpointsProtocol=https;AccountName=azureyellowcab;AccountKey=r/A3SvJIIzCnK+7RXvM+Pa8hrwE8MFAt6jwAwibQlap03V5oRbyD52911/AdxQN91srwByCo/LnC+ASt03RZLg==;EndpointSuffix=core.windows.net'
-blob_service_client = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
-
+import scripts.utils.FileUtils as utils
+import logging
+blob_service_client = BlobServiceClient.from_connection_string(utils.azure_conn)
+logger = logging.getLogger(__name__)
 
 def file_download():
+    logger.info("Downloading files")
     try:
         container_client = blob_service_client.get_container_client('cabfiles')
         blob_list = container_client.list_blobs()        
         for filename in blob_list:
             get_file(filename.name)
             container_client.delete_blob(filename.name)
+        logger.info("download completed")
         return None
     except Exception as e:
-        print("An error occurred:", e)
+        logger.info("An error occurred, file not downloaded:", e)
         return None
 
 def get_file(filename):
+    logger.info("file detected on blob: ", filename)
     try:
         blob_client = blob_service_client.get_blob_client(
             container='cabfiles', blob=filename)
@@ -34,26 +36,25 @@ def get_file(filename):
         return None
 
 def load_files():
+    logger.info("starting upload to DB")
     try:
-        for filename in utils.source_path:
-            print('enter for loop')
+        for filename in os.listdir(utils.source_path):
             if filename.endswith(".parquet"):
-                print('enter if loop')
                 file_upload(filename)
+        logger.info("DB upload completed")
         return None
+        
     except Exception as e:
         print(e)
         return None
 
 def file_upload(filename):
-    print('enter file_upload function')
+    logger.info("uploading file: ", filename)
     filepath = os.path.join(utils.source_path, filename)
-    print('read filepath')
     parquet_file = pq.ParquetFile(filepath)
     for i in parquet_file.iter_batches(batch_size=10000,columns=['tpep_pickup_datetime','tpep_dropoff_datetime']):
         df = i.to_pandas()
         upload_to_db(df)
-    print('upload compleated')
     os.remove(filepath)
     return None
 
@@ -66,12 +67,13 @@ def upload_to_db(df):
             if_exists="append", 
             index=False 
         )
-        print('enden upload_to_db')
     return None
 
 def calculation_file():
+    logger.info("Start average calculation")
     engine = create_engine(utils.sql_conn)
     df = pd.read_sql_query (utils.sql_query,con=engine)
+    logger.info("calculation completed")
     average_duration = df['average_duration'].iloc[0]
     first_timestamp = df['max_pickup_datetime'].iloc[0]
     last_timestamp = df['min_pickup_datetime'].iloc[0]
@@ -80,6 +82,7 @@ def calculation_file():
     return None
 
 def generate_file(average_duration, first_timestamp, last_timestamp):
+    logger.info("generating file")
     filename = str(first_timestamp.year) + '-' + str(first_timestamp.month) + '.txt'
     filepath = os.path.join(utils.source_path, filename)
     av_trip = "Average trip duration for the month: " + str(average_duration)
@@ -92,9 +95,11 @@ def generate_file(average_duration, first_timestamp, last_timestamp):
     return filepath, filename
 
 def send_file_to_azure(filepath, filename):
+    logger.info("uploading file to blob storage")
     container = "results"
     blob_client = blob_service_client.get_blob_client(container=container, blob=filename)
     with open(filepath, "rb") as data:
         blob_client.upload_blob(data)
     os.remove(filepath)
+    logger.info("Upload completed")
     return None
