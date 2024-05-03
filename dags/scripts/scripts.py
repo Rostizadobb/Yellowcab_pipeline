@@ -53,6 +53,7 @@ def file_upload(filename):
     filepath = os.path.join(utils.source_path, filename)
     parquet_file = pq.ParquetFile(filepath)
     for i in parquet_file.iter_batches(batch_size=10000,columns=['tpep_pickup_datetime','tpep_dropoff_datetime']):
+        #NOTE: We can use a dask dataframe as well to scale to distributed systems! 
         df = i.to_pandas()
         upload_to_db(df)
     os.remove(filepath)
